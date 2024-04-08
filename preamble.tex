@@ -1,0 +1,125 @@
+% Package------------
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry} %Geomety and margin
+%\usepackage{mathptmx} % loads Times New Roman
+
+\usepackage{setspace} 
+%\usepackage{helvet} % Text front
+\usepackage{amsmath, amsfonts, amssymb, amsthm} % Math、symbols 
+\usepackage[english]{babel} %English 
+%\usepackage[swedish]{babel} %Swedish
+\usepackage{dynkin-diagrams}
+\usepackage{graphicx}   % Images 
+\usepackage{url}        % URL
+\usepackage{bm}         %BF text
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{simpler-wick}
+\usepackage{cancel}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{xcolor}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{physics}
+\usepackage{lastpage}
+\usepackage{fancyhdr} %Set header and footer
+\pagestyle{fancy}
+\lhead{\emph{}} %Name
+\chead{} %Title 
+\lfoot{}
+%\cfoot{Page \thepage\ of \pageref{LastPage}} %If you want..
+\rfoot{}
+\usepackage{hyperref} %bookmarks
+\hypersetup{
+	colorlinks = true,
+	linkcolor = black,
+	urlcolor = red,
+	citecolor= black,
+	pdftitle = 2}
+\usepackage{fancyvrb} % For code
+%\begin{Verbatim}[numbers=left, frame=single]
+%Hallo world
+%\end{Verbatim}
+\usepackage{multicol} % Multiple columns
+\usepackage{lipsum}  
+\usepackage{caption} 
+\usepackage{subcaption}
+\usepackage{fontawesome5}
+\usepackage{physics} % shotcup for physical symbols 
+\usepackage{breqn}
+\usepackage{enumitem} % item
+\usepackage{xcolor}
+\usepackage{physics}
+\usepackage{breqn}
+% MathTheorem
+%\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{remark}{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{example}[theorem]{Example}
+\newtheorem{proposition}[theorem]{Proposition}
+
+%_-----------------------------------
+
+\usepackage[framemethod=TikZ]{mdframed}
+%theorem
+\newcounter{theo}[section]\setcounter{theo}{0}
+\renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
+\newenvironment{theo}[2][]{%
+	\refstepcounter{theo}%
+	\ifstrempty{#1}%
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline=(current bounding box.east),outer sep=0pt]
+				\node[anchor=east,rectangle,fill=gray!20]
+				{\strut Theorem~\thetheo};}}
+	}%
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline=(current bounding box.east),outer sep=0pt]
+				\node[anchor=east,rectangle,fill=gray!20]
+				{\strut Theorem~\thetheo:~#1};}}%
+	}%
+	\mdfsetup{innertopmargin=10pt,linecolor=gray!20,%
+		linewidth=2pt,topline=true,%
+		frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+	}
+	\begin{mdframed}[]\relax%
+		\label{#2}}{\end{mdframed}}
+
+%Lemma
+\newcounter{lem}[section] \setcounter{lem}{0}
+\renewcommand{\thelem}{\arabic{section}.\arabic{lem}}
+\newenvironment{lem}[2][]{%
+	\refstepcounter{lem}%
+	\ifstrempty{#1}%
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline=(current bounding box.east),outer sep=0pt]
+				\node[anchor=east,rectangle,fill=gray!20]
+				{\strut Lemma~\thelem};}}
+	}%
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline=(current bounding box.east),outer sep=0pt]
+				\node[anchor=east,rectangle,fill=gray!20]
+				{\strut Lemma~\thelem:~#1};}}%
+	}%
+	\mdfsetup{innertopmargin=10pt,linecolor=gray!20,%
+		linewidth=2pt,topline=true,%
+		frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+	}
+	\begin{mdframed}[]\relax%
+		\label{#2}}{\end{mdframed}}
+
+
+%Definition
+%\usepackage{tcolorbox}
+%\tcbuselibrary{theorems}
+%\newtcbtheorem[number within=section]{Def}{Definition}%
+%{colback=white,colframe=black!50, colbacktitle= gray!20,coltitle = black ,fonttitle=\bfseries}{def}
